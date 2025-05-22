@@ -1,8 +1,15 @@
-/* === GENERAL === */
-body {
+
+/* GENERAL BACKGROUND FIX */
+html, body {
     font-family: 'Roboto', sans-serif;
-    color: #333333; /* gris oscuro para legibilidad */
-    background-color: #fcffff;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+/* 👇 Ajustar el sidebar de Streamlit */
+section[data-testid="stSidebar"] {
+    background-color: #f7f7f7 !important;
+    color: #000000 !important;
 }
 
 /* === TITLES === */
@@ -23,6 +30,41 @@ p, span, div, label {
     color: #333333;
 }
 
+/* SIDEBAR BACKGROUND */
+section[data-testid="stSidebar"] {
+    background-color: #f8f9fa !important;
+    color: #000000 !important;
+}
+
+/* MAIN AREA */
+main[data-testid="stAppViewContainer"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* FILE UPLOAD BLOCK */
+div[data-testid="stFileUploaderDropzone"] {
+    background-color: #f1f1f1 !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* SELECT DROPDOWNS AND WIDGETS */
+.css-2trqyj {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.css-1cpxqw2, .css-1v0mbdj {
+    color: #000000 !important;
+}
+
+/* TEXT ELEMENTS */
+h1, h2, h3, h4, h5, h6, p, span, label {
+    color: #000000 !important;
+}
 /* === BUTTONS === */
 .stButton > button {
     font-size: 15px;
@@ -56,14 +98,3 @@ p, span, div, label {
     color: #333333;
 }
 
-/* 👇 Forzar fondo claro para todo el cuerpo */
-body {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* 👇 Ajustar el sidebar de Streamlit */
-section[data-testid="stSidebar"] {
-    background-color: #f7f7f7 !important;
-    color: #000000 !important;
-}
