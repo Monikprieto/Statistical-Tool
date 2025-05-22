@@ -1,0 +1,57 @@
+/* === GENERAL === */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333; /* gris oscuro para legibilidad */
+    background-color: #fcffff;
+}
+
+/* === TITLES === */
+h1 {
+    font-size: 26px;
+    color: #005187;
+}
+h2 {
+    font-size: 22px;
+    color: #005187;
+}
+h3 {
+    font-size: 18px;
+    color: #005187;
+}
+p, span, div, label {
+    font-size: 15px;
+    color: #333333;
+}
+
+/* === BUTTONS === */
+.stButton > button {
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    background-color: #4d82bc;
+    color: white;
+    border: none;
+}
+.stButton > button:hover {
+    background-color: #84b6f4;
+    color: #005187;
+}
+
+/* === WIDGET LABELS === */
+.css-1cpxqw2 {
+    font-size: 16px !important;
+    color: #333333 !important;
+}
+
+/* === DATAFRAMES (st.dataframe / st.table) === */
+.css-1d391kg, .css-1cpxqw2, .css-1d391kg.e1fqkh3o4, .stDataFrame {
+    font-size: 14px !important;
+    font-family: 'Roboto', sans-serif;
+    color: #333333 !important;
+}
+
+/* === CUSTOM WIDGETS / HEADERS === */
+.stMarkdown {
+    font-size: 16px;
+    color: #333333;
+}
