@@ -12,7 +12,6 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
-
 st.set_page_config(page_title="Statistica Tool", layout="wide")
 st.title("📊 Statistica Tool")
 
@@ -20,11 +19,12 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
-def local_css(file_name):
-    with open(file_name) as f:
+# Load custom CSS
+def load_custom_style():
+    with open("assets/css/style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-local_css("style.css")
+load_custom_style()
 
 import statistical_tables  
 from analysis_guide import show_analysis_guide
