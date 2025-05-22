@@ -1,9 +1,8 @@
 
 /* GENERAL BACKGROUND FIX */
-html, body {
-    font-family: 'Roboto', sans-serif;
-    color: #000000 !important;
+html, body, main[data-testid="stAppViewContainer"] {
     background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
 /* 👇 Ajustar el sidebar de Streamlit */
