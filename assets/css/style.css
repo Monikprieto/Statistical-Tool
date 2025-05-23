@@ -7,6 +7,24 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockCont
     font-family: 'Roboto', sans-serif !important;
 }
 
+/* === TITLES === */
+h1 {
+    font-size: 26px;
+    color: #005187;
+}
+h2 {
+    font-size: 22px;
+    color: #005187;
+}
+h3 {
+    font-size: 18px;
+    color: #005187;
+}
+p, span, div, label {
+    font-size: 15px;
+    color: #333333;
+}
+
 /* Sidebar appearance */
 section[data-testid="stSidebar"] {
     background-color: #f7f7f7 !important;
