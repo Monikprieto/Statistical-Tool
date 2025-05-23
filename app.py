@@ -12,6 +12,38 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
+
+def render_html_table(df):
+    table_html = df.to_html(classes="custom-table", index=False, escape=False)
+    st.markdown(
+        f"""
+        <style>
+        .custom-table {{
+            border-collapse: collapse;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+        }}
+        .custom-table th {{
+            background-color: #004080;
+            color: white;
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #cccccc;
+        }}
+        .custom-table td {{
+            background-color: #ffffff;
+            color: #000000;
+            padding: 8px;
+            border: 1px solid #dddddd;
+        }}
+        .custom-table tr:nth-child(even) {{
+            background-color: #f2f2f2;
+        }}
+        </style>
+        {table_html}
+        """,
+        unsafe_allow_html=True
+    )
 st.set_page_config(page_title="Statistica Tool", layout="wide")
 st.title("📊 Statistica Tool")
 
@@ -21,8 +53,12 @@ st.markdown("""
 
 # Load custom CSS
 def load_custom_style():
-    with open("assets/css/style.css") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    try:
+        with open("assets/css/style.css") as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+            st.markdown("✅ CSS loaded!")
+    except Exception as e:
+        st.error(f"❌ Failed to load CSS: {e}")
 
 load_custom_style()
 
@@ -101,14 +137,7 @@ if menu == "Analysis":
     else:
         # ✅ Mostrar preview solo si hay archivo y no es "Tests whitout BD"
         st.subheader("📄 Preview of Uploaded Dataset")
-        styled_df = df.head().style.set_properties(**{
-            'background-color': '#ffffff',
-            'color': '#120907',
-            'border-color': '#969ce7',
-            'font-family': 'Roboto',
-            'font-size': '15px'
-        })
-        st.write(styled_df)
+        render_html_table(df.head())
 
         if module == "Descriptive Analysis":
             numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
