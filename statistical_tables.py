@@ -1,17 +1,28 @@
 import streamlit as st
-import base64
 import os
-import streamlit.components.v1 as components 
+from glob import glob
 
-def embed_pdf(file_path, label):
-    if os.path.exists(file_path):
-        with open(file_path, "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
-            st.markdown(pdf_display, unsafe_allow_html=True)
-            st.download_button(f"📥 Download {label}", data=f, file_name=file_path, mime='application/pdf')
+# NUEVA FUNCION PARA IMAGEN + PDF
+
+def show_table_multi(image_folder, pdf_path, label):
+    image_files = sorted(glob(os.path.join(image_folder, "*.png")))
+
+    if image_files:
+        for img in image_files:
+            st.image(img, use_column_width=True)
     else:
-        st.error(f"❌ {label} not found: {file_path}")
+        st.warning(f"⚠️ No images found in: {image_folder}")
+
+    if os.path.exists(pdf_path):
+        with open(pdf_path, "rb") as f:
+            st.download_button(
+                f"📥 Download {label} (PDF)",
+                data=f,
+                file_name=os.path.basename(pdf_path),
+                mime="application/pdf"
+            )
+    else:
+        st.error(f"❌ PDF not found: {pdf_path}")
 
 def main():
     st.title("\U0001F4CA Statistical Tables Reference")
@@ -38,10 +49,10 @@ def main():
 - Critical Z: `=NORM.S.INV(1 - α/2)`  
 - Cumulative Probability: `=NORM.S.DIST(Z, TRUE)`
         """)
-        embed_pdf("assets/tables/Standard-Normal-Ztable.pdf", "Z Table")
+        show_table_multi("assets/images/Z-Table/", "assets/tables/Standard-Normal-Ztable.pdf", "Z Table")
 
     with tabs[1]:
-        st.subheader("T Table (Student's t)")
+        st.subheader("T Table")
         st.markdown("""
 **Use Cases:**  
 - Small samples (n < 30) and unknown σ.  
@@ -54,10 +65,10 @@ def main():
 - Critical T: `=T.INV.2T(α, df)`  
 - Cumulative Probability: `=T.DIST(T, df, TRUE)`
         """)
-        embed_pdf("assets/tables/t-table.pdf", "T Table")
+        show_table_multi("assets/images/T-Table/", "assets/tables/t-table.pdf", "T Table")
 
     with tabs[2]:
-        st.subheader("F Table (Fisher Distribution)")
+        st.subheader("F Table")
         st.markdown("""
 **Use Cases:**  
 - Comparing variances.  
@@ -71,7 +82,7 @@ def main():
 - Critical F: `=F.INV.RT(α, df1, df2)`  
 - Cumulative Probability: `=F.DIST.RT(F, df1, df2)`
         """)
-        embed_pdf("assets/tables/F-table.pdf", "F Table")
+        show_table_multi("assets/images/F-Table/", "assets/tables/F-table.pdf", "F Table")
 
     with tabs[3]:
         st.subheader("Chi-Square Table")
@@ -89,7 +100,7 @@ def main():
 - Critical χ²: `=CHIINV(α, df)`  
 - Cumulative Probability: `=CHIDIST(χ², df)`
         """)
-        embed_pdf("assets/tables/chi-square-table.pdf", "Chi-Square Table")
+        show_table_multi("assets/images/Chi-Square-Table/", "assets/tables/chi-square-table.pdf", "Chi-Square Table")
 
     with tabs[4]:
         st.subheader("Pearson Correlation Table")
@@ -105,7 +116,7 @@ def main():
 - Pearson r: `=CORREL(range1, range2)`  
 - Associated T: `=T.INV.2T(α, n - 2)`
         """)
-        embed_pdf("assets/tables/Pearsonstable.pdf", "Pearson Correlation Table")
+        show_table_multi("assets/images/Pearsonstable/", "assets/tables/Pearsonstable.pdf", "Pearson Table")
 
     with tabs[5]:
         st.subheader("Binomial Distribution Table")
@@ -119,7 +130,7 @@ def main():
 - Exact success: `=BINOM.DIST(x, n, p, FALSE)`  
 - Cumulative: `=BINOM.DIST(x, n, p, TRUE)`
         """)
-        embed_pdf("assets/tables/Binomial-Distribution-Table.pdf", "Binomial Table")
+        show_table_multi("assets/images/Binomial-Distribution-Table/", "assets/tables/Binomial-Distribution-Table.pdf", "Binomial Table")
 
     with tabs[6]:
         st.subheader("Poisson Distribution Table")
@@ -133,7 +144,7 @@ def main():
 - Exact event count: `=POISSON.DIST(x, λ, FALSE)`  
 - Cumulative: `=POISSON.DIST(x, λ, TRUE)`
         """)
-        embed_pdf("assets/tables/poisson_table.pdf", "Poisson Table")
+        show_table_multi("assets/images/Poisson-Table/", "assets/tables/poisson_table.pdf", "Poisson Table")
 
     with tabs[7]:
         st.subheader("Normal Distribution (Z-Score)")
@@ -146,7 +157,7 @@ def main():
 **Key Formula:**  
 - Cumulative Probability: `=NORM.DIST(X, mean, std_dev, TRUE)`
         """)
-        embed_pdf("assets/tables/z-table.pdf", "Normal Z Table")
+        show_table_multi("assets/images/Z-table-NormalDist/", "assets/tables/z-table.pdf", "Normal Z Table")
 
     with tabs[8]:
         st.subheader("Exponential Distribution Table")
@@ -174,5 +185,3 @@ def main():
   - tails: 1 or 2  
   - type: 1 = paired, 2 = equal variances, 3 = unequal
         """)
-
-
