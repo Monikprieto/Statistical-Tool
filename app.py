@@ -12,38 +12,7 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
-
-def render_html_table(df):
-    table_html = df.to_html(classes="custom-table", index=False, escape=False)
-    st.markdown(
-        f"""
-        <style>
-        .custom-table {{
-            border-collapse: collapse;
-            width: 100%;
-            font-family: 'Roboto', sans-serif;
-        }}
-        .custom-table th {{
-            background-color: #004080;
-            color: white;
-            text-align: left;
-            padding: 8px;
-            border: 1px solid #cccccc;
-        }}
-        .custom-table td {{
-            background-color: #ffffff;
-            color: #000000;
-            padding: 8px;
-            border: 1px solid #dddddd;
-        }}
-        .custom-table tr:nth-child(even) {{
-            background-color: #f2f2f2;
-        }}
-        </style>
-        {table_html}
-        """,
-        unsafe_allow_html=True
-    )
+st.dataframe(df)
 st.set_page_config(page_title="Statistica Tool", layout="wide")
 st.title("📊 Statistica Tool")
 
