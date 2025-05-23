@@ -1,28 +1,26 @@
 import streamlit as st
+import base64
 import os
-from glob import glob
+import streamlit.components.v1 as components 
 
-# NUEVA FUNCION PARA IMAGEN + PDF
+def embed_pdf_web_compatible(file_path, label):
+    if os.path.exists(file_path):
+        # Mostrar botón de descarga
+        with open(file_path, "rb") as f:
+            st.download_button(f"📥 Download {label}", data=f, file_name=os.path.basename(file_path), mime='application/pdf')
 
-def show_table_multi(image_folder, pdf_path, label):
-    image_files = sorted(glob(os.path.join(image_folder, "*.png")))
-
-    if image_files:
-        for img in image_files:
-            st.image(img, use_column_width=True)
+        # Detectar si estamos en local o en la nube
+        if "localhost" in st.experimental_get_query_params().get("host", [""])[0] or os.getenv("STREAMLIT_LOCAL") == "1":
+            # ✅ Entorno local — usar iframe
+            with open(file_path, "rb") as f:
+                base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+                pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
+                st.markdown(pdf_display, unsafe_allow_html=True)
+        else:
+            # 🌐 Cloud — dar link al PDF si está en /assets/
+            st.markdown(f"[📄 View {label} PDF online](https://{st.secrets['custom_domain']}/assets/tables/{os.path.basename(file_path)})", unsafe_allow_html=True)
     else:
-        st.warning(f"⚠️ No images found in: {image_folder}")
-
-    if os.path.exists(pdf_path):
-        with open(pdf_path, "rb") as f:
-            st.download_button(
-                f"📥 Download {label} (PDF)",
-                data=f,
-                file_name=os.path.basename(pdf_path),
-                mime="application/pdf"
-            )
-    else:
-        st.error(f"❌ PDF not found: {pdf_path}")
+        st.error(f"❌ {label} not found: {file_path}")
 
 def main():
     st.title("\U0001F4CA Statistical Tables Reference")
@@ -49,10 +47,10 @@ def main():
 - Critical Z: `=NORM.S.INV(1 - α/2)`  
 - Cumulative Probability: `=NORM.S.DIST(Z, TRUE)`
         """)
-        show_table_multi("assets/images/Z-Table/", "assets/tables/Standard-Normal-Ztable.pdf", "Z Table")
+        embed_pdf_web_compatible("Standard-Normal-Ztable.pdf", "Z Table")
 
     with tabs[1]:
-        st.subheader("T Table")
+        st.subheader("T Table (Student's t)")
         st.markdown("""
 **Use Cases:**  
 - Small samples (n < 30) and unknown σ.  
@@ -65,10 +63,10 @@ def main():
 - Critical T: `=T.INV.2T(α, df)`  
 - Cumulative Probability: `=T.DIST(T, df, TRUE)`
         """)
-        show_table_multi("assets/images/T-Table/", "assets/tables/t-table.pdf", "T Table")
+        embed_pdf_web_compatible("t-table.pdf", "T Table")
 
     with tabs[2]:
-        st.subheader("F Table")
+        st.subheader("F Table (Fisher Distribution)")
         st.markdown("""
 **Use Cases:**  
 - Comparing variances.  
@@ -82,7 +80,7 @@ def main():
 - Critical F: `=F.INV.RT(α, df1, df2)`  
 - Cumulative Probability: `=F.DIST.RT(F, df1, df2)`
         """)
-        show_table_multi("assets/images/F-Table/", "assets/tables/F-table.pdf", "F Table")
+        embed_pdf_web_compatible("F-table.pdf", "F Table")
 
     with tabs[3]:
         st.subheader("Chi-Square Table")
@@ -100,7 +98,7 @@ def main():
 - Critical χ²: `=CHIINV(α, df)`  
 - Cumulative Probability: `=CHIDIST(χ², df)`
         """)
-        show_table_multi("assets/images/Chi-Square-Table/", "assets/tables/chi-square-table.pdf", "Chi-Square Table")
+        embed_pdf_web_compatible("chi-square-table.pdf", "Chi-Square Table")
 
     with tabs[4]:
         st.subheader("Pearson Correlation Table")
@@ -116,7 +114,7 @@ def main():
 - Pearson r: `=CORREL(range1, range2)`  
 - Associated T: `=T.INV.2T(α, n - 2)`
         """)
-        show_table_multi("assets/images/Pearsonstable/", "assets/tables/Pearsonstable.pdf", "Pearson Table")
+        embed_pdf_web_compatible("Pearsonstable.pdf", "Pearson Correlation Table")
 
     with tabs[5]:
         st.subheader("Binomial Distribution Table")
@@ -130,7 +128,7 @@ def main():
 - Exact success: `=BINOM.DIST(x, n, p, FALSE)`  
 - Cumulative: `=BINOM.DIST(x, n, p, TRUE)`
         """)
-        show_table_multi("assets/images/Binomial-Distribution-Table/", "assets/tables/Binomial-Distribution-Table.pdf", "Binomial Table")
+        embed_pdf_web_compatible("Binomial-Distribution-Table.pdf", "Binomial Table")
 
     with tabs[6]:
         st.subheader("Poisson Distribution Table")
@@ -144,7 +142,7 @@ def main():
 - Exact event count: `=POISSON.DIST(x, λ, FALSE)`  
 - Cumulative: `=POISSON.DIST(x, λ, TRUE)`
         """)
-        show_table_multi("assets/images/Poisson-Table/", "assets/tables/poisson_table.pdf", "Poisson Table")
+        embed_pdf_web_compatible("poisson_table.pdf", "Poisson Table")
 
     with tabs[7]:
         st.subheader("Normal Distribution (Z-Score)")
@@ -157,7 +155,7 @@ def main():
 **Key Formula:**  
 - Cumulative Probability: `=NORM.DIST(X, mean, std_dev, TRUE)`
         """)
-        show_table_multi("assets/images/Z-table-NormalDist/", "assets/tables/z-table.pdf", "Normal Z Table")
+        embed_pdf_web_compatible("z-table.pdf", "Normal Z Table")
 
     with tabs[8]:
         st.subheader("Exponential Distribution Table")
@@ -185,3 +183,5 @@ def main():
   - tails: 1 or 2  
   - type: 1 = paired, 2 = equal variances, 3 = unequal
         """)
+
+
