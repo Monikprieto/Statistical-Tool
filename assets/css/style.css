@@ -69,3 +69,19 @@ button[data-testid="stActionButtonIcon"] {
     color: white !important;
     border: none !important;
 }
+/* =================== FIX selectbox dropdown menu =================== */
+div[data-baseweb="popover"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+}
+
+div[data-baseweb="popover"] div {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+div[data-baseweb="popover"] div:hover {
+    background-color: #f0f8ff !important;
+    color: #000000 !important;
+}
