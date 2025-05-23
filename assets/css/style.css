@@ -69,19 +69,38 @@ button[data-testid="stActionButtonIcon"] {
     color: white !important;
     border: none !important;
 }
+
 /* =================== FIX selectbox dropdown menu =================== */
 div[data-baseweb="popover"] {
     background-color: #ffffff !important;
     color: #000000 !important;
     border: 1px solid #cccccc !important;
 }
-
 div[data-baseweb="popover"] div {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
-
 div[data-baseweb="popover"] div:hover {
     background-color: #f0f8ff !important;
     color: #000000 !important;
+}
+
+/* =================== FIX BUTTONS (st.button, etc.) =================== */
+button[kind="primary"], button[kind="secondary"], .stButton button {
+    background-color: #0066cc !important;
+    color: white !important;
+    border: none !important;
+}
+.stButton button:hover {
+    background-color: #004080 !important;
+}
+
+/* =================== FIX DATAFRAME HEADERS =================== */
+.stDataFrame thead, .stDataFrame thead tr, .stDataFrame thead th {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+}
+.stDataFrame tbody td {
+    color: #000000 !important;
+    background-color: #ffffff !important;
 }
