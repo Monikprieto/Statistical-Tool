@@ -104,3 +104,21 @@ button[kind="primary"], button[kind="secondary"], .stButton button {
     color: #000000 !important;
     background-color: #ffffff !important;
 }
+/* =================== FIX ENCABEZADOS DE st.dataframe =================== */
+.stDataFrame div[role="grid"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Encabezados */
+.stDataFrame div[role="columnheader"] {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+/* Celdas */
+.stDataFrame div[role="gridcell"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
