@@ -1,99 +1,80 @@
-
-/* GENERAL BACKGROUND FIX */
-html, body, main[data-testid="stAppViewContainer"] {
+/* ========================================
+   🌐 Global Layout & Typography
+======================================== */
+html, body, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockContainer"] {
     background-color: #ffffff !important;
     color: #000000 !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* 👇 Ajustar el sidebar de Streamlit */
+/* Sidebar appearance */
 section[data-testid="stSidebar"] {
     background-color: #f7f7f7 !important;
     color: #000000 !important;
 }
 
-/* === TITLES === */
-h1 {
-    font-size: 26px;
-    color: #005187;
-}
-h2 {
-    font-size: 22px;
-    color: #005187;
-}
-h3 {
-    font-size: 18px;
-    color: #005187;
-}
-p, span, div, label {
-    font-size: 15px;
-    color: #333333;
+/* ========================================
+   🎨 Headings
+======================================== */
+h1, h2, h3, h4 {
+    color: #005187 !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* SIDEBAR BACKGROUND */
-section[data-testid="stSidebar"] {
-    background-color: #f8f9fa !important;
-    color: #000000 !important;
+/* ========================================
+   🔘 Buttons
+======================================== */
+button {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* MAIN AREA */
-main[data-testid="stAppViewContainer"] {
+button:hover {
+    background-color: #0056b3 !important;
+}
+
+/* ========================================
+   📝 Inputs, Selects, Textareas
+======================================== */
+input, textarea, select {
     background-color: #ffffff !important;
     color: #000000 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    padding: 6px;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* FILE UPLOAD BLOCK */
+/* ========================================
+   📁 File Uploader
+======================================== */
 div[data-testid="stFileUploaderDropzone"] {
-    background-color: #f1f1f1 !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    padding: 10px;
-}
-
-/* SELECT DROPDOWNS AND WIDGETS */
-.css-2trqyj {
     background-color: #ffffff !important;
     color: #000000 !important;
-}
-
-.css-1cpxqw2, .css-1v0mbdj {
-    color: #000000 !important;
-}
-
-/* TEXT ELEMENTS */
-h1, h2, h3, h4, h5, h6, p, span, label {
-    color: #000000 !important;
-}
-/* === BUTTONS === */
-.stButton > button {
-    font-size: 15px;
+    border: 1px dashed #999 !important;
     border-radius: 8px;
-    padding: 0.5em 1em;
-    background-color: #4d82bc;
-    color: white;
-    border: none;
-}
-.stButton > button:hover {
-    background-color: #84b6f4;
-    color: #005187;
+    padding: 12px;
 }
 
-/* === WIDGET LABELS === */
-.css-1cpxqw2 {
-    font-size: 16px !important;
-    color: #333333 !important;
+/* ========================================
+   📊 Tables and DataFrames
+======================================== */
+.css-1v0mbdj, .css-1cpxqw2, .stDataFrame {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* === DATAFRAMES (st.dataframe / st.table) === */
-.css-1d391kg, .css-1cpxqw2, .css-1d391kg.e1fqkh3o4, .stDataFrame {
-    font-size: 14px !important;
-    font-family: 'Roboto', sans-serif;
-    color: #333333 !important;
+/* ========================================
+   🧭 Scrollbar (optional customization)
+======================================== */
+::-webkit-scrollbar {
+    width: 10px;
 }
-
-/* === CUSTOM WIDGETS / HEADERS === */
-.stMarkdown {
-    font-size: 16px;
-    color: #333333;
+::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 10px;
 }
-
