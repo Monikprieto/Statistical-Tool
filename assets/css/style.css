@@ -140,3 +140,16 @@ button[kind="primary"], button[kind="secondary"], .stButton button {
     color: #000000 !important;
     border: 1px solid #eeeeee !important;
 }
+/* =================== FIX PARA AGGRID ENCABEZADOS =================== */
+.stDataFrame [role="columnheader"] {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    border: 1px solid #cccccc !important;
+}
+
+.stDataFrame [role="gridcell"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #eeeeee !important;
+}
