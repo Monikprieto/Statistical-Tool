@@ -1,103 +1,77 @@
-
-/* =================== Global Reset =================== */
-html, body, [data-testid="stAppViewContainer"] {
+/* === GENERAL BACKGROUND & FONT === */
+html, body, .main, .block-container {
     background-color: #ffffff !important;
     color: #000000 !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
-/* =================== Sidebar =================== */
-[data-testid="stSidebar"] {
-    background-color: #f7f7f7 !important;
+/* === SIDEBAR === */
+.css-6qob1r.e1fqkh3o3 {  /* Sidebar background */
+    background-color: #f9f9f9 !important;
+}
+
+.css-1d391kg {  /* Sidebar text */
     color: #000000 !important;
 }
 
-[data-testid="stSidebar"] .css-1v0mbdj, /* Main title */
-[data-testid="stSidebar"] h1, h2, h3, h4 {
-    color: #004c7b !important;
-    font-weight: 700 !important;
-}
-
-/* =================== General Text =================== */
-h1, h2, h3, h4, h5, h6, p, span, label, div {
-    color: #000000 !important;
-}
-
-/* =================== Select Boxes =================== */
-.css-1wa3eu0-placeholder,
-.css-1uccc91-singleValue {
-    color: #000000 !important;
-}
-
-.css-1okebmr-indicatorSeparator {
-    display: none !important;
-}
-
-div[data-baseweb="select"] > div {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #ccc !important;
-    border-radius: 6px;
-}
-
-/* =================== Buttons =================== */
-button[kind="primary"] {
-    background-color: #007bff !important;
-    color: #ffffff !important;
-    border-radius: 10px !important;
-    padding: 0.5rem 1.2rem;
-    font-weight: bold;
-    border: none;
-}
-
-button[kind="primary"]:hover {
-    background-color: #0056b3 !important;
-}
-
-/* =================== File Uploader Block =================== */
-section[data-testid="stFileUploader"] {
-    background-color: #ffffff !important;
-    border: 1px dashed #cccccc !important;
-    color: #000000 !important;
-}
-
-/* =================== Fix for dark headers in st.dataframe =================== */
-[data-testid="stDataFrame"] thead {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-}
-
-[data-testid="stDataFrame"] .st-cq {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-    font-weight: 600;
-}
-
-[data-testid="stDataFrame"] .st-cn {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* =================== Fix Dropdown Expanded Menu =================== */
-.css-26l3qy-menu {
+/* === DROPDOWNS / SELECTBOX === */
+.stSelectbox > div > div {
     background-color: #ffffff !important;
     color: #000000 !important;
     border: 1px solid #cccccc !important;
 }
-
-/* =================== Footer/Manage App =================== */
-footer, .css-qcqlej, [data-testid="stStatusWidget"] {
+.stSelectbox div[data-baseweb="select"] {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* =================== Scrollbar Fix =================== */
-*::-webkit-scrollbar {
-    width: 10px;
+/* === DROPDOWN MENU (desplegado) === */
+.stSelectbox div[data-baseweb="popover"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
-*::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.stSelectbox div[role="option"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
-*::-webkit-scrollbar-thumb {
-    background-color: #999;
-    border-radius: 6px;
+
+/* === BUTTONS === */
+button[kind="primary"] {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+}
+button[kind="primary"]:hover {
+    background-color: #0056b3 !important;
+}
+
+/* === FILE UPLOAD AREA === */
+section[data-testid="stFileUploaderDropzone"] {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+    border: 1px dashed #ccc !important;
+}
+section[data-testid="stFileUploaderDropzone"] label {
+    color: #000000 !important;
+}
+
+/* === DATAFRAME / TABLE === */
+.css-1q1n0ol.e1tzin5v2 {  /* Table header */
+    background-color: #e8f0fe !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+.css-1q1n0ol.e1tzin5v2 th {
+    background-color: #e8f0fe !important;
+    color: #000000 !important;
+}
+.css-1q1n0ol.e1tzin5v2 td {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* === TÍTULOS PRINCIPALES === */
+h1, h2, h3 {
+    color: #004080 !important;
 }
