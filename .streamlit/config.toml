@@ -1,0 +1,9 @@
+# ~/.streamlit/config.toml
+
+[theme]
+base = "light"
+primaryColor = "#004aad"              # Azul corporativo
+backgroundColor = "#ffffff"           # Fondo general blanco
+secondaryBackgroundColor = "#f8f8f8"  # Fondo del sidebar
+textColor = "#000000"                 # Texto negro
+font = "sans serif"

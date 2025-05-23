@@ -1,165 +1,21 @@
-/* =================== GENERAL =================== */
-html, body, .main, .block-container, .stApp {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* =================== SIDEBAR =================== */
-section[data-testid="stSidebar"] {
-    background-color: #f8f8f8 !important;
-    color: #000000 !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #004080 !important;
-}
-
-/* =================== TEXTS =================== */
-p, label, span, div, .stMarkdown, .css-pxxe24, .css-1cpxqw2, .css-10trblm {
-    color: #000000 !important;
-}
-
-/* =================== INPUTS =================== */
-input, textarea, select, .stTextInput, .stNumberInput {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* =================== SELECTBOX (Dropdown) =================== */
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc !important;
-}
-div[data-baseweb="select"] * {
-    color: #000000 !important;
-    background-color: #ffffff !important;
-}
-
-/* =================== FILE UPLOADER =================== */
-div[data-testid="stFileUploader"] > section {
-    background-color: #ffffff !important;
-    border: 1px solid #dddddd !important;
-    color: #000000 !important;
-    padding: 10px;
-}
-div[data-testid="stFileUploader"] button {
-    background-color: #0066cc !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px !important;
-    padding: 8px 14px;
-}
-
-/* =================== HEADER / FOOTER =================== */
-header[data-testid="stHeader"],
-footer {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* =================== ICONS & TOOLTIPS =================== */
-svg, .stTooltipIcon {
-    fill: #000000 !important;
-}
-
-/* =================== FIX "Manage app" button =================== */
-button[data-testid="stActionButtonIcon"] {
-    background-color: #0066cc !important;
-    color: white !important;
-    border: none !important;
-}
-
-/* =================== FIX selectbox dropdown menu =================== */
-div[data-baseweb="popover"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc !important;
-}
-div[data-baseweb="popover"] div {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-div[data-baseweb="popover"] div:hover {
-    background-color: #f0f8ff !important;
-    color: #000000 !important;
-}
-
-/* =================== FIX BUTTONS (st.button, etc.) =================== */
-button[kind="primary"], button[kind="secondary"], .stButton button {
-    background-color: #0066cc !important;
-    color: white !important;
-    border: none !important;
-}
-.stButton button:hover {
-    background-color: #004080 !important;
-}
-
-/* =================== FIX DATAFRAME HEADERS =================== */
-.stDataFrame thead, .stDataFrame thead tr, .stDataFrame thead th {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-}
-.stDataFrame tbody td {
-    color: #000000 !important;
-    background-color: #ffffff !important;
-}
-/* =================== FIX ENCABEZADOS DE st.dataframe =================== */
-.stDataFrame div[role="grid"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Encabezados */
-.stDataFrame div[role="columnheader"] {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-    font-weight: bold !important;
-}
-
-/* Celdas */
-.stDataFrame div[role="gridcell"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-/* =================== DATAFRAME =================== */
-.stDataFrame > div {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-.stDataFrame th {
-    background-color: #f0f4ff !important;
+/* =================== TABLAS =================== */
+thead tr th {
+    background-color: #e6f0ff !important;
     color: #000000 !important;
     font-weight: bold;
-    border: 1px solid #d3d3d3 !important;
+    font-size: 14px;
 }
 
-.stDataFrame td {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #eeeeee !important;
-}
-/* =================== FIX PARA AGGRID ENCABEZADOS =================== */
-.stDataFrame [role="columnheader"] {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-    font-weight: bold !important;
-    border: 1px solid #cccccc !important;
+/* =================== BOTONES =================== */
+div.stButton > button {
+    background-color: #004aad !important;
+    color: white !important;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
 }
 
-.stDataFrame [role="gridcell"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #eeeeee !important;
-}
-/* =================== FORZAR ESTILO EN st.dataframe HEADERS EN IFRAME =================== */
-iframe {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Estilo para encabezados de iframe embed (dentro de st.dataframe) */
-iframe::-webkit-scrollbar-track {
-    background-color: #ffffff !important;
+/* =================== PIE DE PÁGINA =================== */
+footer {
+    visibility: hidden;
 }
