@@ -1,40 +1,48 @@
-/* Fondo claro y texto principal */
-html, body, .main, .block-container, .css-18ni7ap, .stApp {
+/* =================== GENERAL =================== */
+html, body, .main, .block-container, .stApp {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Sidebar */
+/* =================== SIDEBAR =================== */
 section[data-testid="stSidebar"] {
     background-color: #f8f8f8 !important;
     color: #000000 !important;
 }
 
-/* Títulos */
 h1, h2, h3, h4, h5, h6 {
     color: #004080 !important;
 }
 
-/* Textos y etiquetas */
-p, label, span, div, .stMarkdown, .css-1cpxqw2, .css-pxxe24, .css-10trblm {
+/* =================== TEXTS =================== */
+p, label, span, div, .stMarkdown, .css-pxxe24, .css-1cpxqw2, .css-10trblm {
     color: #000000 !important;
 }
 
-/* Input fields */
+/* =================== INPUTS =================== */
 input, textarea, select, .stTextInput, .stNumberInput {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Contenedor del file uploader */
+/* =================== SELECTBOX (Dropdown) =================== */
+div[data-baseweb="select"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+}
+div[data-baseweb="select"] * {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+/* =================== FILE UPLOADER =================== */
 div[data-testid="stFileUploader"] > section {
     background-color: #ffffff !important;
     border: 1px solid #dddddd !important;
     color: #000000 !important;
     padding: 10px;
 }
-
-/* Botón Browse Files */
 div[data-testid="stFileUploader"] button {
     background-color: #0066cc !important;
     color: white !important;
@@ -43,25 +51,21 @@ div[data-testid="stFileUploader"] button {
     padding: 8px 14px;
 }
 
-/* Select dropdown */
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Header superior */
-header[data-testid="stHeader"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Footer */
+/* =================== HEADER / FOOTER =================== */
+header[data-testid="stHeader"],
 footer {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Iconos y tooltips */
+/* =================== ICONS & TOOLTIPS =================== */
 svg, .stTooltipIcon {
     fill: #000000 !important;
+}
+
+/* =================== FIX "Manage app" button =================== */
+button[data-testid="stActionButtonIcon"] {
+    background-color: #0066cc !important;
+    color: white !important;
+    border: none !important;
 }
