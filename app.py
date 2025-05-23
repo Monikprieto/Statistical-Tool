@@ -12,7 +12,6 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
-st.dataframe(df)
 st.set_page_config(page_title="Statistica Tool", layout="wide")
 st.title("📊 Statistica Tool")
 
