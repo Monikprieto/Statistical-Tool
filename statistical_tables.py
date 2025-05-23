@@ -10,7 +10,7 @@ def embed_pdf_web_compatible(file_path, label):
             st.download_button(f"📥 Download {label}", data=f, file_name=os.path.basename(file_path), mime='application/pdf')
 
         # Detectar si estamos en local o en la nube
-        if "localhost" in st.query_params.get("host", [""])[0]
+        if "localhost" in st.query_params.get("host", [""])[0]:
             # ✅ Entorno local — usar iframe
             with open(file_path, "rb") as f:
                 base64_pdf = base64.b64encode(f.read()).decode('utf-8')
