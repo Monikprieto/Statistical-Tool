@@ -85,3 +85,19 @@ div[data-baseweb="popover"] div:hover {
     background-color: #f0f8ff !important;
     color: #000000 !important;
 }
+/* =================== Fix for dark headers in st.dataframe =================== */
+[data-testid="stDataFrame"] thead {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+}
+
+[data-testid="stDataFrame"] .st-cq {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+[data-testid="stDataFrame"] .st-cn {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
