@@ -1,53 +1,67 @@
-/* Fondo general y colores principales */
+/* Fondo claro y texto principal */
 html, body, .main, .block-container, .css-18ni7ap, .stApp {
-    background-color: #fefefe !important;
+    background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Menú lateral (Sidebar) */
+/* Sidebar */
 section[data-testid="stSidebar"] {
     background-color: #f8f8f8 !important;
     color: #000000 !important;
 }
 
-/* Título y subtítulos */
-h1, h2, h3, h4, h5, h6, .stMarkdown, .css-qbe2hs {
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
     color: #004080 !important;
 }
 
-/* Inputs (dropdowns, inputs, etc.) */
-div[data-baseweb="select"], .stTextInput, .stNumberInput, .stTextArea {
+/* Textos y etiquetas */
+p, label, span, div, .stMarkdown, .css-1cpxqw2, .css-pxxe24, .css-10trblm {
+    color: #000000 !important;
+}
+
+/* Input fields */
+input, textarea, select, .stTextInput, .stNumberInput {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* File uploader */
+/* Contenedor del file uploader */
 div[data-testid="stFileUploader"] > section {
     background-color: #ffffff !important;
     border: 1px solid #dddddd !important;
     color: #000000 !important;
+    padding: 10px;
 }
 
-/* Eliminar fondo oscuro de navbar superior */
+/* Botón Browse Files */
+div[data-testid="stFileUploader"] button {
+    background-color: #0066cc !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 14px;
+}
+
+/* Select dropdown */
+div[data-baseweb="select"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Header superior */
 header[data-testid="stHeader"] {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Footer: "Manage app" */
+/* Footer */
 footer {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Etiquetas como "Select Module" */
-label, .css-1cpxqw2 {
-    color: #000000 !important;
-}
-
-/* Botón de Browse Files */
-button[kind="primary"] {
-    background-color: #0066cc !important;
-    color: white !important;
-    border-radius: 8px !important;
+/* Iconos y tooltips */
+svg, .stTooltipIcon {
+    fill: #000000 !important;
 }
