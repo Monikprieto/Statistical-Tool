@@ -153,3 +153,13 @@ button[kind="primary"], button[kind="secondary"], .stButton button {
     color: #000000 !important;
     border: 1px solid #eeeeee !important;
 }
+/* =================== FORZAR ESTILO EN st.dataframe HEADERS EN IFRAME =================== */
+iframe {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Estilo para encabezados de iframe embed (dentro de st.dataframe) */
+iframe::-webkit-scrollbar-track {
+    background-color: #ffffff !important;
+}
