@@ -1,90 +1,65 @@
-/* =================== GENERAL =================== */
-html, body, .main, .block-container, .stApp {
+
+/* =================== Global Reset =================== */
+html, body, [data-testid="stAppViewContainer"] {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* =================== SIDEBAR =================== */
-section[data-testid="stSidebar"] {
-    background-color: #f8f8f8 !important;
+/* =================== Sidebar =================== */
+[data-testid="stSidebar"] {
+    background-color: #f7f7f7 !important;
     color: #000000 !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #004080 !important;
+[data-testid="stSidebar"] .css-1v0mbdj, /* Main title */
+[data-testid="stSidebar"] h1, h2, h3, h4 {
+    color: #004c7b !important;
+    font-weight: 700 !important;
 }
 
-/* =================== TEXTS =================== */
-p, label, span, div, .stMarkdown, .css-pxxe24, .css-1cpxqw2, .css-10trblm {
+/* =================== General Text =================== */
+h1, h2, h3, h4, h5, h6, p, span, label, div {
     color: #000000 !important;
 }
 
-/* =================== INPUTS =================== */
-input, textarea, select, .stTextInput, .stNumberInput {
+/* =================== Select Boxes =================== */
+.css-1wa3eu0-placeholder,
+.css-1uccc91-singleValue {
+    color: #000000 !important;
+}
+
+.css-1okebmr-indicatorSeparator {
+    display: none !important;
+}
+
+div[data-baseweb="select"] > div {
     background-color: #ffffff !important;
     color: #000000 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
 }
 
-/* =================== SELECTBOX (Dropdown) =================== */
-div[data-baseweb="select"] {
+/* =================== Buttons =================== */
+button[kind="primary"] {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    border: none;
+}
+
+button[kind="primary"]:hover {
+    background-color: #0056b3 !important;
+}
+
+/* =================== File Uploader Block =================== */
+section[data-testid="stFileUploader"] {
     background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc !important;
-}
-div[data-baseweb="select"] * {
-    color: #000000 !important;
-    background-color: #ffffff !important;
-}
-
-/* =================== FILE UPLOADER =================== */
-div[data-testid="stFileUploader"] > section {
-    background-color: #ffffff !important;
-    border: 1px solid #dddddd !important;
-    color: #000000 !important;
-    padding: 10px;
-}
-div[data-testid="stFileUploader"] button {
-    background-color: #0066cc !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px !important;
-    padding: 8px 14px;
-}
-
-/* =================== HEADER / FOOTER =================== */
-header[data-testid="stHeader"],
-footer {
-    background-color: #ffffff !important;
+    border: 1px dashed #cccccc !important;
     color: #000000 !important;
 }
 
-/* =================== ICONS & TOOLTIPS =================== */
-svg, .stTooltipIcon {
-    fill: #000000 !important;
-}
-
-/* =================== FIX "Manage app" button =================== */
-button[data-testid="stActionButtonIcon"] {
-    background-color: #0066cc !important;
-    color: white !important;
-    border: none !important;
-}
-/* =================== FIX selectbox dropdown menu =================== */
-div[data-baseweb="popover"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc !important;
-}
-
-div[data-baseweb="popover"] div {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-div[data-baseweb="popover"] div:hover {
-    background-color: #f0f8ff !important;
-    color: #000000 !important;
-}
 /* =================== Fix for dark headers in st.dataframe =================== */
 [data-testid="stDataFrame"] thead {
     background-color: #f2f2f2 !important;
@@ -100,4 +75,29 @@ div[data-baseweb="popover"] div:hover {
 [data-testid="stDataFrame"] .st-cn {
     background-color: #ffffff !important;
     color: #000000 !important;
+}
+
+/* =================== Fix Dropdown Expanded Menu =================== */
+.css-26l3qy-menu {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+}
+
+/* =================== Footer/Manage App =================== */
+footer, .css-qcqlej, [data-testid="stStatusWidget"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* =================== Scrollbar Fix =================== */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 6px;
 }
