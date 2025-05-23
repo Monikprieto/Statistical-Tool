@@ -1,77 +1,87 @@
-/* === GENERAL BACKGROUND & FONT === */
-html, body, .main, .block-container {
+/* =================== GENERAL =================== */
+html, body, .main, .block-container, .stApp {
     background-color: #ffffff !important;
     color: #000000 !important;
-    font-family: 'Roboto', sans-serif !important;
 }
 
-/* === SIDEBAR === */
-.css-6qob1r.e1fqkh3o3 {  /* Sidebar background */
-    background-color: #f9f9f9 !important;
-}
-
-.css-1d391kg {  /* Sidebar text */
+/* =================== SIDEBAR =================== */
+section[data-testid="stSidebar"] {
+    background-color: #f8f8f8 !important;
     color: #000000 !important;
 }
 
-/* === DROPDOWNS / SELECTBOX === */
-.stSelectbox > div > div {
+h1, h2, h3, h4, h5, h6 {
+    color: #004080 !important;
+}
+
+/* =================== TEXTS =================== */
+p, label, span, div, .stMarkdown, .css-pxxe24, .css-1cpxqw2, .css-10trblm {
+    color: #000000 !important;
+}
+
+/* =================== INPUTS =================== */
+input, textarea, select, .stTextInput, .stNumberInput {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* =================== SELECTBOX (Dropdown) =================== */
+div[data-baseweb="select"] {
     background-color: #ffffff !important;
     color: #000000 !important;
     border: 1px solid #cccccc !important;
 }
-.stSelectbox div[data-baseweb="select"] {
-    background-color: #ffffff !important;
+div[data-baseweb="select"] * {
     color: #000000 !important;
+    background-color: #ffffff !important;
 }
 
-/* === DROPDOWN MENU (desplegado) === */
-.stSelectbox div[data-baseweb="popover"] {
+/* =================== FILE UPLOADER =================== */
+div[data-testid="stFileUploader"] > section {
     background-color: #ffffff !important;
+    border: 1px solid #dddddd !important;
     color: #000000 !important;
+    padding: 10px;
 }
-.stSelectbox div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* === BUTTONS === */
-button[kind="primary"] {
-    background-color: #007bff !important;
-    color: #ffffff !important;
+div[data-testid="stFileUploader"] button {
+    background-color: #0066cc !important;
+    color: white !important;
     border: none !important;
     border-radius: 6px !important;
-}
-button[kind="primary"]:hover {
-    background-color: #0056b3 !important;
+    padding: 8px 14px;
 }
 
-/* === FILE UPLOAD AREA === */
-section[data-testid="stFileUploaderDropzone"] {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-    border: 1px dashed #ccc !important;
-}
-section[data-testid="stFileUploaderDropzone"] label {
-    color: #000000 !important;
-}
-
-/* === DATAFRAME / TABLE === */
-.css-1q1n0ol.e1tzin5v2 {  /* Table header */
-    background-color: #e8f0fe !important;
-    color: #000000 !important;
-    font-weight: bold !important;
-}
-.css-1q1n0ol.e1tzin5v2 th {
-    background-color: #e8f0fe !important;
-    color: #000000 !important;
-}
-.css-1q1n0ol.e1tzin5v2 td {
+/* =================== HEADER / FOOTER =================== */
+header[data-testid="stHeader"],
+footer {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* === TÍTULOS PRINCIPALES === */
-h1, h2, h3 {
-    color: #004080 !important;
+/* =================== ICONS & TOOLTIPS =================== */
+svg, .stTooltipIcon {
+    fill: #000000 !important;
+}
+
+/* =================== FIX "Manage app" button =================== */
+button[data-testid="stActionButtonIcon"] {
+    background-color: #0066cc !important;
+    color: white !important;
+    border: none !important;
+}
+/* =================== FIX selectbox dropdown menu =================== */
+div[data-baseweb="popover"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+}
+
+div[data-baseweb="popover"] div {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+div[data-baseweb="popover"] div:hover {
+    background-color: #f0f8ff !important;
+    color: #000000 !important;
 }
