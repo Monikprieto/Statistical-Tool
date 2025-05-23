@@ -8,35 +8,19 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockCont
 }
 
 /* === TITLES === */
-h1 {
-    font-size: 26px;
-    color: #005187;
-}
-h2 {
-    font-size: 22px;
-    color: #005187;
-}
-h3 {
-    font-size: 18px;
-    color: #005187;
-}
-p, span, div, label {
-    font-size: 15px;
-    color: #333333;
-}
-
-/* Sidebar appearance */
-section[data-testid="stSidebar"] {
-    background-color: #f7f7f7 !important;
-    color: #000000 !important;
-}
-
-/* ========================================
-   🎨 Headings
-======================================== */
 h1, h2, h3, h4 {
     color: #005187 !important;
     font-family: 'Roboto', sans-serif !important;
+}
+p, span, div, label {
+    color: #333333 !important;
+    font-size: 15px;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #f7f7f7 !important;
+    color: #000000 !important;
 }
 
 /* ========================================
@@ -49,7 +33,6 @@ button {
     border-radius: 6px !important;
     font-family: 'Roboto', sans-serif !important;
 }
-
 button:hover {
     background-color: #0056b3 !important;
 }
@@ -63,31 +46,34 @@ input, textarea, select {
     border: 1px solid #ccc !important;
     border-radius: 6px !important;
     padding: 6px;
-    font-family: 'Roboto', sans-serif !important;
 }
 
 /* ========================================
    📁 File Uploader
 ======================================== */
 div[data-testid="stFileUploaderDropzone"] {
-    background-color: #ffffff !important;
+    background-color: #f0f0f0 !important;
     color: #000000 !important;
     border: 1px dashed #999 !important;
     border-radius: 8px;
     padding: 12px;
 }
+.css-1q8dd3e, .css-1cpxqw2, .css-1l269bu {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+}
 
 /* ========================================
    📊 Tables and DataFrames
 ======================================== */
-.css-1v0mbdj, .css-1cpxqw2, .stDataFrame {
-    color: #000000 !important;
+.stDataFrame, .css-1v0mbdj {
     background-color: #ffffff !important;
+    color: #000000 !important;
     font-family: 'Roboto', sans-serif !important;
 }
 
 /* ========================================
-   🧭 Scrollbar (optional customization)
+   🧭 Scrollbar
 ======================================== */
 ::-webkit-scrollbar {
     width: 10px;
