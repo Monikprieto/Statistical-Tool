@@ -106,7 +106,7 @@ if menu == "Analysis":
     else:
         # ✅ Mostrar preview solo si hay archivo y no es "Tests whitout BD"
         st.subheader("📄 Preview of Uploaded Dataset")
-        render_html_table(df.head())
+        st.dataframe(df.head())
 
         if module == "Descriptive Analysis":
             numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
