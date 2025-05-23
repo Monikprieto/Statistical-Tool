@@ -1,106 +1,53 @@
-/* ========================================
-   🌐 Global Layout & Typography
-======================================== */
-html, body, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockContainer"] {
-    background-color: #ffffff !important;
+/* Fondo general y colores principales */
+html, body, .main, .block-container, .css-18ni7ap, .stApp {
+    background-color: #fefefe !important;
     color: #000000 !important;
-    font-family: 'Roboto', sans-serif !important;
 }
 
-/* === TITLES === */
-h1, h2, h3, h4 {
-    color: #005187 !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-p, span, div, label {
-    color: #333333 !important;
-    font-size: 15px;
-}
-
-/* Sidebar */
+/* Menú lateral (Sidebar) */
 section[data-testid="stSidebar"] {
-    background-color: #f7f7f7 !important;
+    background-color: #f8f8f8 !important;
     color: #000000 !important;
 }
 
-/* ========================================
-   🔘 Buttons
-======================================== */
-button {
-    background-color: #007bff !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 6px !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-button:hover {
-    background-color: #0056b3 !important;
+/* Título y subtítulos */
+h1, h2, h3, h4, h5, h6, .stMarkdown, .css-qbe2hs {
+    color: #004080 !important;
 }
 
-/* ========================================
-   📝 Inputs, Selects, Textareas
-======================================== */
-input, textarea, select {
+/* Inputs (dropdowns, inputs, etc.) */
+div[data-baseweb="select"], .stTextInput, .stNumberInput, .stTextArea {
     background-color: #ffffff !important;
     color: #000000 !important;
-    border: 1px solid #ccc !important;
-    border-radius: 6px !important;
-    padding: 6px;
 }
 
-/* ========================================
-   📁 File Uploader
-======================================== */
-div[data-testid="stFileUploaderDropzone"] {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-    border: 1px dashed #999 !important;
-    border-radius: 8px;
-    padding: 12px;
-}
-.css-1q8dd3e, .css-1cpxqw2, .css-1l269bu {
-    background-color: #f0f0f0 !important;
-    color: #000000 !important;
-}
-
-/* ========================================
-   📊 Tables and DataFrames
-======================================== */
-.stDataFrame, .css-1v0mbdj {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-/* ========================================
-   🧭 Scrollbar
-======================================== */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background: #cccccc;
-    border-radius: 10px;
-}
-/* ========================================
-   🎯 FIX Final — FileUploader + dark box
-======================================== */
+/* File uploader */
 div[data-testid="stFileUploader"] > section {
     background-color: #ffffff !important;
+    border: 1px solid #dddddd !important;
     color: #000000 !important;
-    border: 1px dashed #bbb !important;
-    border-radius: 10px !important;
-    padding: 12px !important;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
 }
 
-div[data-testid="stFileUploader"] label {
+/* Eliminar fondo oscuro de navbar superior */
+header[data-testid="stHeader"] {
+    background-color: #ffffff !important;
     color: #000000 !important;
-    font-weight: 500;
 }
 
+/* Footer: "Manage app" */
+footer {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Etiquetas como "Select Module" */
+label, .css-1cpxqw2 {
+    color: #000000 !important;
+}
+
+/* Botón de Browse Files */
 button[kind="primary"] {
-    background-color: #007bff !important;
-    color: #ffffff !important;
-    border-radius: 6px;
+    background-color: #0066cc !important;
+    color: white !important;
+    border-radius: 8px !important;
 }
