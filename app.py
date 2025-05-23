@@ -19,16 +19,12 @@ st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
-# Load custom CSS
 def load_custom_style():
     try:
         with open("assets/css/style.css") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-            st.markdown("✅ CSS loaded!")
-    except Exception as e:
-        st.error(f"❌ Failed to load CSS: {e}")
-
-load_custom_style()
+    except FileNotFoundError:
+        st.error("❌ style.css not found.")
 
 import statistical_tables  
 from analysis_guide import show_analysis_guide
