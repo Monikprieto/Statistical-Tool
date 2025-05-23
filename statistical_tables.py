@@ -47,7 +47,7 @@ def main():
 - Critical Z: `=NORM.S.INV(1 - α/2)`  
 - Cumulative Probability: `=NORM.S.DIST(Z, TRUE)`
         """)
-        embed_pdf_web_compatible("Standard-Normal-Ztable.pdf", "Z Table")
+        embed_pdf_web_compatible("assets/tables/Standard-Normal-Ztable.pdf", "Z Table")
 
     with tabs[1]:
         st.subheader("T Table (Student's t)")
@@ -63,7 +63,7 @@ def main():
 - Critical T: `=T.INV.2T(α, df)`  
 - Cumulative Probability: `=T.DIST(T, df, TRUE)`
         """)
-        embed_pdf_web_compatible("t-table.pdf", "T Table")
+        embed_pdf_web_compatible("assets/tables/t-table.pdf", "T Table")
 
     with tabs[2]:
         st.subheader("F Table (Fisher Distribution)")
@@ -80,7 +80,7 @@ def main():
 - Critical F: `=F.INV.RT(α, df1, df2)`  
 - Cumulative Probability: `=F.DIST.RT(F, df1, df2)`
         """)
-        embed_pdf_web_compatible("F-table.pdf", "F Table")
+        embed_pdf_web_compatible("assets/tables/F-table.pdf", "F Table")
 
     with tabs[3]:
         st.subheader("Chi-Square Table")
@@ -98,7 +98,7 @@ def main():
 - Critical χ²: `=CHIINV(α, df)`  
 - Cumulative Probability: `=CHIDIST(χ², df)`
         """)
-        embed_pdf_web_compatible("chi-square-table.pdf", "Chi-Square Table")
+        embed_pdf_web_compatible("assets/tables/chi-square-table.pdf", "Chi-Square Table")
 
     with tabs[4]:
         st.subheader("Pearson Correlation Table")
@@ -114,7 +114,7 @@ def main():
 - Pearson r: `=CORREL(range1, range2)`  
 - Associated T: `=T.INV.2T(α, n - 2)`
         """)
-        embed_pdf_web_compatible("Pearsonstable.pdf", "Pearson Correlation Table")
+        embed_pdf_web_compatible("assets/tables/Pearsonstable.pdf", "Pearson Correlation Table")
 
     with tabs[5]:
         st.subheader("Binomial Distribution Table")
@@ -128,7 +128,7 @@ def main():
 - Exact success: `=BINOM.DIST(x, n, p, FALSE)`  
 - Cumulative: `=BINOM.DIST(x, n, p, TRUE)`
         """)
-        embed_pdf_web_compatible("Binomial-Distribution-Table.pdf", "Binomial Table")
+        embed_pdf_web_compatible("assets/tables/Binomial-Distribution-Table.pdf", "Binomial Table")
 
     with tabs[6]:
         st.subheader("Poisson Distribution Table")
@@ -142,7 +142,7 @@ def main():
 - Exact event count: `=POISSON.DIST(x, λ, FALSE)`  
 - Cumulative: `=POISSON.DIST(x, λ, TRUE)`
         """)
-        embed_pdf_web_compatible("poisson_table.pdf", "Poisson Table")
+        embed_pdf_web_compatible("assets/tables/poisson_table.pdf", "Poisson Table")
 
     with tabs[7]:
         st.subheader("Normal Distribution (Z-Score)")
@@ -155,7 +155,7 @@ def main():
 **Key Formula:**  
 - Cumulative Probability: `=NORM.DIST(X, mean, std_dev, TRUE)`
         """)
-        embed_pdf_web_compatible("z-table.pdf", "Normal Z Table")
+        embed_pdf_web_compatible("assets/tables/z-table.pdf", "Normal Z Table")
 
     with tabs[8]:
         st.subheader("Exponential Distribution Table")
