@@ -19,10 +19,7 @@ def embed_pdf_web_compatible(file_path, label):
         else:
             # 🌐 Cloud — dar link al PDF si está en /assets/
             base_path = st.get_option('server.baseUrlPath') or ""
-            st.markdown(
-                f"[📄 View {label} PDF online]({base_path}/assets/tables/{os.path.basename(file_path)})",
-                unsafe_allow_html=True
-            )
+            ##st.markdown(f"[📄 View {label} PDF online]({base_path}/assets/tables/{os.path.basename(file_path)})",unsafe_allow_html=True)   
 
     else:
         st.error(f"❌ {label} not found: {file_path}")
