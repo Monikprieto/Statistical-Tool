@@ -17,7 +17,7 @@ st.set_page_config(page_title="Statistical Analysis Tool", layout="wide")
 
 col1, col2 = st.columns([1, 5])
 with col1:
-    st.image("assets/img/Statistical_Analysis_Tool.png", width=80)
+    st.image("assets/img/Statistical_Analysis_Tool.PNG", width=80)
 with col2:
     st.markdown("""
         <h1 style='margin-bottom:0;'>Statistical</h1>
