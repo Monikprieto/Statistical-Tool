@@ -12,8 +12,18 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
-st.set_page_config(page_title="Statistica Tool", layout="wide")
-st.title("📊 Statistica Tool")
+# Mostrar logo y título
+st.set_page_config(page_title="Statistical Analysis Tool", layout="wide")
+
+col1, col2 = st.columns([1, 5])
+with col1:
+    st.image("assets/img/Statistical_Analysis_Tool.png", width=80)
+with col2:
+    st.markdown("""
+        <h1 style='margin-bottom:0;'>Statistical</h1>
+        <h4 style='margin-top:0; color: gray;'>Analysis Tool</h4>
+    """, unsafe_allow_html=True)
+
 
 st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -35,9 +45,9 @@ menu = st.sidebar.radio("Go to:", ["Analysis", "Statistical Tables Reference", "
 if menu == "Analysis":
     st.sidebar.markdown("---")
     module = st.sidebar.selectbox("📚 Select Analysis Module", [
-        "Descriptive Analysis", "Sampling", "Categorical Encoding",
-        "Hypothesis Testing", "Tests whitout BD","Correlation", "Chi-Square Test", "Proportion Test",
-        "Linear Regression", "Logistic Regression", "Outliers"], key="module_select")
+        "Tests whitout BD","Descriptive Analysis", "Sampling", "Hypothesis Testing",
+         "Correlation", "Chi-Square Test", "Proportion Test", "Linear Regression",
+         "Logistic Regression", "Outliers"],"Categorical Encoding", key="module_select")
 
 if menu == "Statistical Tables Reference":
     statistical_tables.main()
