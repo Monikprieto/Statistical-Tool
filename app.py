@@ -12,17 +12,39 @@ from modules import logistic_regression
 from modules import outliers_analysis
 from modules import encoding_categorical
 
-# Mostrar logo y título
+# ✅ Ampliar el ancho de la app
 st.set_page_config(page_title="Statistical Analysis Tool", layout="wide")
+# ✅ Reducir márgenes del contenedor principal
+st.markdown("""
+    <style>
+        .main .block-container {
+            max-width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 5])
-with col1:
-    st.image("assets/img/Statistical_Analysis_Tool.PNG", width=80)
-with col2:
-    st.markdown("""
-        <h1 style='margin-bottom:0;'>Statistical</h1>
-        <h4 style='margin-top:0; color: gray;'>Analysis Tool</h4>
-    """, unsafe_allow_html=True)
+
+# Mostrar logo y título
+from PIL import Image
+import base64
+
+logo_path = "assets/img/logo.jpg"
+try:
+    with open(logo_path, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode()
+    st.markdown(
+        f"""
+        <div style="text-align: center;">
+            <img src="data:image/jpeg;base64,{encoded}" width="260">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+except FileNotFoundError:
+    st.warning("⚠️ Logo not found at: " + logo_path)
+
 
 
 st.markdown("""
@@ -44,10 +66,16 @@ menu = st.sidebar.radio("Go to:", ["Analysis", "Statistical Tables Reference", "
 
 if menu == "Analysis":
     st.sidebar.markdown("---")
-    module = st.sidebar.selectbox("📚 Select Analysis Module", [
-        "Tests whitout BD","Descriptive Analysis", "Sampling", "Hypothesis Testing",
-         "Correlation", "Chi-Square Test", "Proportion Test", "Linear Regression",
-         "Logistic Regression", "Outliers"],"Categorical Encoding", key="module_select")
+    module = st.sidebar.selectbox(
+        "📚 Select Analysis Module",
+        [
+            "Tests whitout BD", "Descriptive Analysis", "Sampling", "Hypothesis Testing",
+            "Correlation", "Chi-Square Test", "Proportion Test", "Linear Regression",
+            "Logistic Regression", "Outliers", "Categorical Encoding"
+        ],
+        index=0,  # o el índice que prefieras como valor por defecto
+        key="module_select"
+)
 
 if menu == "Statistical Tables Reference":
     statistical_tables.main()
@@ -157,3 +185,23 @@ if menu == "Analysis":
 
         elif module == "Outliers":
             outliers_analysis.run_outlier_analysis(df)
+
+import base64
+from PIL import Image
+
+footer_path = "assets/img/logo_monica.jpg"
+try:
+    with open(footer_path, "rb") as f:
+        footer_encoded = base64.b64encode(f.read()).decode()
+
+    st.markdown(
+        f"""
+        <hr style="margin-top: 3rem; margin-bottom: 0.5rem;">
+        <div style='text-align: center; opacity: 0.6;'>
+            <img src="data:image/jpeg;base64,{footer_encoded}" width="100">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+except FileNotFoundError:
+    st.warning("⚠️ Footer logo not found at: " + footer_path)
