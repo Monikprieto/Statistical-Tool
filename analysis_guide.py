@@ -1,7 +1,10 @@
 import streamlit as st
+from fpdf import FPDF
+import base64
+import tempfile
 
 def show_analysis_guide():
-    st.markdown("""
+    guide_text = """
 ### Descriptive Analysis
 Summarizes and describes the main characteristics of a dataset. Helps understand the distribution, central tendency, and dispersion before applying more complex tests.
 
@@ -148,4 +151,114 @@ Transforms categorical data into numeric formats for use in modeling (e.g., regr
 **Requirements:**
 - One or more categorical columns.
 - Clean dataset without nulls.
-    """)
+
+---
+
+### Analysis without Dataset
+
+Includes analytical tools that do not require a dataset upload. These tools are based on theoretical concepts and are useful for academic exercises, manual calculations, or simplified simulations.
+
+**Z-Test (One Proportion)**  
+Evaluates if the proportion of success in a sample significantly differs from a hypothesized proportion.  
+**Requirements:**  
+- Sample size  
+- Number of successes  
+- Hypothesized proportion  
+- Significance level  
+
+**Z-Test (Two Population Means)**  
+Compares the means of two independent populations with known variances and large samples.  
+**Requirements:**  
+- Sample means, standard deviations, sizes  
+- Significance level  
+
+**T-Test (Equal Variances)**  
+Compares the means of two independent samples assuming equal population variances.  
+**Requirements:**  
+- Sample means, standard deviations, sizes  
+- Assumed equal variances  
+- Significance level  
+
+**T-Test (Unequal Variances)**  
+Similar to the above, but without assuming equal variances (Welch’s Test).  
+**Requirements:**  
+- Sample means, standard deviations, sizes  
+- No assumption of equal variance  
+- Significance level  
+
+**Two-Proportion Z-Test**  
+Compares the proportions of success between two groups.  
+**Requirements:**  
+- Successes and sample sizes of both groups  
+- Significance level  
+
+**Confidence Intervals**  
+Calculates a range of values likely to contain the population parameter.  
+**Requirements:**  
+- Sample statistics (mean or proportion)  
+- Confidence level  
+- Standard error or standard deviation  
+
+**Normal Distribution Tools**  
+Computes probabilities and critical values based on the standard normal distribution.  
+**Requirements:**  
+- Z-scores or raw scores  
+- Mean and standard deviation  
+
+**Sampling Distribution Tools**  
+Helps understand variability of sample statistics and standard error estimates.  
+**Requirements:**  
+- Population parameters  
+- Sample size  
+
+**Binomial Distribution**  
+Calculates the probability of obtaining a fixed number of successes in a given number of independent trials.  
+**Requirements:**  
+- Number of trials  
+- Probability of success  
+- Desired number of successes  
+
+**Poisson Distribution**  
+Estimates the probability of a given number of events in a fixed interval when events occur independently.  
+**Requirements:**  
+- Average rate of occurrence (λ)  
+- Desired number of events  
+
+**Conditional Probability**  
+Measures the probability of an event given that another event has occurred.  
+**Requirements:**  
+- P(A and B), P(B) or relevant counts  
+
+**Bayes Theorem**  
+Updates the probability of a hypothesis based on new evidence.  
+**Requirements:**  
+- Prior probability, likelihood, and marginal probability  
+
+**Combinatorics and Sample Spaces**  
+Calculates the total number of possible outcomes or combinations.  
+**Requirements:**  
+- Type of arrangement (permutation or combination)  
+- Number of items and selection size  
+
+**Classical Probability**  
+Computes the likelihood of events based on equally likely outcomes.  
+**Requirements:**  
+- Total possible outcomes  
+- Number of favorable outcomes
+    """
+
+    st.markdown(guide_text)
+
+    if st.button("📄 Download Guide as PDF"):
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_auto_page_break(auto=True, margin=15)
+        pdf.set_font("Arial", size=10)
+        for line in guide_text.split('\n'):
+            pdf.multi_cell(0, 10, line)
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmpfile:
+            pdf.output(tmpfile.name)
+            with open(tmpfile.name, "rb") as file:
+                b64 = base64.b64encode(file.read()).decode()
+                href = f'<a href="data:application/pdf;base64,{b64}" download="analysis_guide.pdf">📥 Click here to download the PDF</a>'
+                st.markdown(href, unsafe_allow_html=True)
