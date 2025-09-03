@@ -2,7 +2,7 @@ name: keep-app-awake
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # Ejecuta cada 6 horas
+    - cron: "0 */3 * * *"   # Ejecuta cada 6 horas
   workflow_dispatch:        # Permite lanzarlo manualmente si quieres probar
 
 jobs:
