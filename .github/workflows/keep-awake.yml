@@ -2,26 +2,32 @@ name: keep-app-awake
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # Ejecuta cada 3 horas
-  workflow_dispatch:        # Permite lanzarlo manualmente para probar
+    - cron: "0 */3 * * *"   # cada 3 horas
+  workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Warm up Streamlit app (retry until awake)
+      - name: Warm up (retry until not Zzz)
         run: |
           URL="https://statistical-tool-mp.streamlit.app/?nocache=$(date +%s)"
           for i in {1..6}; do
             echo "Ping #$i"
-            CONTENT=$(curl -s -H "User-Agent: Mozilla/5.0" -H "Cache-Control: no-cache" "$URL")
-            if echo "$CONTENT" | grep -qi "Zzz"; then
-              echo "Aún está dormida. Esperando 20s y reintentando..."
+            CONTENT=$(curl -s --retry 3 --max-time 20 \
+              -H "User-Agent: Mozilla/5.0" -H "Cache-Control: no-cache" "$URL")
+            if echo "$CONTENT" | grep -Eqi "Zzz|suspendid"; then
+              echo "Aún dormida. Esperando 20s…"
               sleep 20
             else
-              echo "¡App despierta!"
-              exit 0
+              echo "¡App respondió contenido real!"
+              break
             fi
           done
-          echo "Sigue dormida tras varios intentos."
-          exit 1
+
+      - name: Second ping after warm-up
+        run: |
+          sleep 70
+          curl -s -o /dev/null -w "%{http_code}" \
+            -H "User-Agent: Mozilla/5.0" -H "Cache-Control: no-cache" \
+            "https://statistical-tool-mp.streamlit.app/?check=$(date +%s)"
